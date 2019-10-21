@@ -26,7 +26,13 @@ public class PlanItemPriceCalculator {
             if (loadedOrders.contains(currentOrder))
                 loading = false;
             
-            String currentOrderLocation = loading ? currentOrder.getFrom() : currentOrder.getTo();
+            String currentOrderLocation;
+            
+            if (loading) {
+                currentOrderLocation = currentOrder.getFrom();
+            }else{
+                currentOrderLocation = currentOrder.getTo();
+            }
             
             if (!currentLocation.equals(currentOrderLocation)) {
                 price += dm.getDistanceBetweenLocations(currentLocation, currentOrderLocation);
