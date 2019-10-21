@@ -23,14 +23,14 @@ public class PlanItemPriceCalculator {
             Order currentOrder = orders.get(i);
         
             boolean loading = true;
-            if (loadedOrders.contains(currentOrder))
+            if (loadedOrders.contains(currentOrder)) {
                 loading = false;
+            }
             
-            String currentOrderLocation;
-            
+            String currentOrderLocation;            
             if (loading) {
                 currentOrderLocation = currentOrder.getFrom();
-            }else{
+            } else {
                 currentOrderLocation = currentOrder.getTo();
             }
             
